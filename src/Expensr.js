@@ -55,3 +55,12 @@ export default Expensr;
 // 2. Provide three pages - Dashboard, Expenses, and reports accessible through a navbar.
 
 // 6. The front-end must be a Single-Page-Expensrlication.
+
+
+// dispatch({type: 'SET_USER', payload: })
+// dispatch({type: 'SET_EXPENSES', payload: })
+// dispatch({type: 'SET_TOTAL', payload: })
+// dispatch({type: 'SET_LAST_FIVE', payload: })
+// dispatch({type: 'SET_WEEKLY_EXPENSES', payload: })
+// dispatch({type: 'SET_CATEGORY_EXPENSES', payload: })
+// dispatch({type: 'SET_CURRENCY', payload: })

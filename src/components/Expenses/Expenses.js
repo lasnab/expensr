@@ -40,7 +40,6 @@ function Expenses() {
         return new Date(date1).valueOf() - new Date(date2).valueOf()
     }
 
-
     return (
         <div>
             Expenses

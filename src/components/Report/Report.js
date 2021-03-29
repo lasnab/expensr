@@ -1,16 +1,23 @@
-import React from 'react'
+import React, {useContext, useState} from 'react'
+import { Context } from '../../Store'
+import WeeklyExpenses from './WeeklyExpenses'
+import CategoryExpenses from './CategoryExpenses'
+
 
 function Report() {
+    const [{weeklyExpenses, categoryExpenses}] = useContext(Context)
     return (
         <div>
             <h1>Reports</h1>
+            <h2>Category Overview</h2>
+            <CategoryExpenses categoryExpenses={categoryExpenses}/>
+            <h2>Weekly Overview</h2>
+            <WeeklyExpenses expenses={weeklyExpenses} />
         </div>
     )
 }
 
 export default Report
-
-
 
 // 5. Report:
 //    a. Show total amount spent per week of the current month.

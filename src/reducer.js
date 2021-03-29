@@ -15,6 +15,31 @@ const reducer = (state, action) => {
                 ...state,
                 expenses: action.payload
             };
+        case 'SET_TOTAL':
+            return {
+                ...state,
+                total: action.payload
+            };
+        case 'SET_LAST_FIVE':
+            return {
+                ...state,
+                lastFive: action.payload
+            };
+        case 'SET_WEEKLY_EXPENSES':
+            return {
+                ...state,
+                weeklyExpenses: action.payload
+            };
+        case 'SET_CATEGORY_EXPENSES':
+            return {
+                ...state,
+                categoryExpenses: action.payload
+            };
+        case 'SET_CURRENCY':
+            return {
+                ...state,
+                currency: action.payload
+            };
         case 'SET_ERROR':
             return {
                 ...state,

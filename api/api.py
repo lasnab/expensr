@@ -20,4 +20,12 @@ def index():
 # @app.route('/profile')
 # def profile():
 
+# @app.route('')
+# // dispatch({type: 'SET_USER', payload: })
+# // dispatch({type: 'SET_EXPENSES', payload: })
+# // dispatch({type: 'SET_TOTAL', payload: })
+# // dispatch({type: 'SET_LAST_FIVE', payload: })
+# // dispatch({type: 'SET_WEEKLY_EXPENSES', payload: })
+# // dispatch({type: 'SET_CATEGORY_EXPENSES', payload: })
+# // dispatch({type: 'SET_CURRENCY', payload: })
 
