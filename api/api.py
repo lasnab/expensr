@@ -3,8 +3,10 @@ import random
 import json
 from functools import reduce
 from datetime import datetime
+from flask_cors import CORS
 
 app = Flask(__name__, static_folder='../public', static_url_path='/')
+CORS(app)
 
 global SEEN
 SEEN = {}
@@ -33,6 +35,11 @@ def not_found(e):
 def index():
     return 'SERVING...  '
 
+@app.route('/user/<user>')
+def user(user):
+    index = getUserIndex(user)
+    return data[index]
+
 
 @app.route('/expenses/<user>')
 def expenses(user):
@@ -47,7 +54,8 @@ def total(user):
     index = getUserIndex(user)
     total = 0
     for expense in data[index]['expenses']:
-        total+=round(float(expense['amount'][1:]), 2)
+        total+=float(expense['amount'][1:])
+    total = round(total, 2)
     return {'total': total}
 
 @app.route('/lastfive/<user>')
@@ -78,8 +86,11 @@ def categorical(user):
 @app.route('/currency/<user>')
 def currency(user):
     index = getUserIndex(user)
-    currency = data[index]['expenses'][0]['currency']
-    return {'currency':currency}
+    try: 
+        currency = data[index]['expenses'][0]['currency']
+        return {'currency':currency}
+    except:
+        return {'currency': 'INR'}
 
 # @app.route('/signin')
 # def handleSignIn():

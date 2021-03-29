@@ -1,5 +1,5 @@
 // https://blog.ag-grid.com/deleting-selected-rows-and-cell-ranges-via-key-press/#selected-rows-delete
-import React, {useContext, useState} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import { Context } from '../../Store'
 import ExpensesForm from './ExpenseForm'
 import { AgGridReact, AgGridColumn } from 'ag-grid-react'
@@ -8,7 +8,16 @@ import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham-dark.css' 
 
 function Expenses() {
-    const [state] = useContext(Context)
+    const [state, dispatch] = useContext(Context)
+
+    useEffect(() => {
+        const test = 'test_user'
+        fetch(`http://127.0.0.1:5000/expenses/${test}`).then(res => res.json())
+        .then((expenses) => {
+            dispatch({type: 'SET_EXPENSES', payload: expenses})
+        }).catch(err => console.log('Error in Dashboard.js: ', err))
+    }, [dispatch])
+
     const {id, first_name, last_name, email} = state.user
     const expenses = state.expenses
 

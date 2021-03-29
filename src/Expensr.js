@@ -12,14 +12,13 @@ function Expensr() {
   const [state, dispatch] = useContext(Context)
 
   useEffect(() => {
-    fetch('data.json')
+    const test = 'test_user'
+    fetch(`http://127.0.0.1:5000/user/${test}`)
       .then(res => res.json())
-      .then(users => {
-        const user = users[1]
-        console.log(users[0])
+      .then(user => {
+        console.log(user)
         dispatch({type: 'SET_LOGIN', payload: true})
         dispatch({type: 'SET_USER', payload: user})
-        dispatch({type: 'SET_EXPENSES', payload: user.expenses})
       })
       .catch(err => console.log('Error in Expensr.js: ', err))
     }, [dispatch])

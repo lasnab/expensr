@@ -5,7 +5,7 @@ import CategoryExpenses from './CategoryExpenses'
 
 
 function Report() {
-    const [{weeklyExpenses, categoryExpenses}] = useContext(Context)
+    const [{weeklyExpenses, categoryExpenses}, dispatch] = useContext(Context)
     return (
         <div>
             <h1>Reports</h1>

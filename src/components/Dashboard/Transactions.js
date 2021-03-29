@@ -1,5 +1,4 @@
 import React from 'react'
-import getSymbolFromCurrency from 'currency-symbol-map'
 
 function Transactions({ transactions }) {
     if (transactions.length) {
